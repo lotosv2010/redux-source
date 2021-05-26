@@ -1,10 +1,10 @@
-import {createStore} from 'redux';
-function counter (state= 0, action) {
+import {createStore} from '../lib/index';
+function counter (state= {number: 0}, action) {
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1
+      return {number:state.number + 1}
     case 'DECREMENT':
-       return state - 1
+      return {number:state.number - 1}
     default:
       return state
   }
