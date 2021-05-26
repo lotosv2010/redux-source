@@ -23,6 +23,7 @@ class Counter extends Component {
   render() { 
     return (
       <div>
+        <h2>class component</h2>
         <p>redux:{this.state.number}</p>
         <p>react-redux:{this.props.number}</p>
         <button onClick={this.minus}>-</button>
