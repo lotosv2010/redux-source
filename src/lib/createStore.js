@@ -14,7 +14,6 @@ export default function createStore(reducer, preloadedState) {
     }
   }
   function dispatch(action) {
-    console.log(action)
     currentState = currentReducer(currentState, action)
     for (let i = 0; i < currentListeners.length; i++) {
       const listener = currentListeners[i]
