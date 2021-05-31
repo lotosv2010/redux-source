@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import {useStore, useDispatch} from '../react-redux'
+import {useStore, useDispatch, useReduxContext} from '../react-redux'
 import { bindActionCreators } from '../lib/index'
 import actions from '../redux/actions/counter2'
 
 function Counter() {
   const store = useStore()
   const dispatch = useDispatch()
+  const context = useReduxContext()
+  console.log('context', context)
+  
   const bindActions = bindActionCreators(actions, store.dispatch)
 
   const [state, setState] = useState({number: store.getState().counter2.number})
