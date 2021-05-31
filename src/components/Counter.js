@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import {connect} from '../react-redux';
 import store from '../redux/index'
 import { bindActionCreators } from '../lib/index'
 import actions from '../redux/actions/counter1'
