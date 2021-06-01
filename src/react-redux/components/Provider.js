@@ -1,7 +1,11 @@
 import React from 'react';
 import Context from './Context'
+import Subscription from '../utils/Subscription'
+
 function Provider ({store, children}) {
-  return <Context.Provider value={{store}}>
+  const subscription = new Subscription(store)
+  const value = {store, subscription}
+  return <Context.Provider value={value}>
     {children}
   </Context.Provider>
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useStore, useDispatch, useReduxContext} from '../react-redux'
+import {useStore, useDispatch, useReduxContext, useSelector} from '../react-redux'
 import { bindActionCreators } from '../lib/index'
 import actions from '../redux/actions/counter2'
 
@@ -8,6 +8,8 @@ function Counter() {
   const dispatch = useDispatch()
   const context = useReduxContext()
   console.log('context', context)
+
+  const counter = useSelector(state => state.counter2)
   
   const bindActions = bindActionCreators(actions, store.dispatch)
 
@@ -24,6 +26,7 @@ function Counter() {
     <div>
       <h2>hooks component</h2>
       <p>redux:{state.number}</p>
+      <p>react-redux-hook:{counter.number}</p>
       <button onClick={bindActions.mul}>*</button>
       <button onClick={() => dispatch(actions.div())}>/</button>
     </div>
