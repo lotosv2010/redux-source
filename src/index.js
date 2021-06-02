@@ -5,6 +5,7 @@ import './index.css';
 import Counter from './components/Counter'
 import FunCounter from './components/FunCounter'
 import HooksCounter from './components/HooksCounter'
+import MiddlewareCounter from './components/MiddlewareCounter'
 import store from './redux/index'
 
 ReactDOM.render(
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Counter />
       <FunCounter />
       <HooksCounter />
+      <MiddlewareCounter />
     </div>
   </Provider>,
   document.getElementById('root')

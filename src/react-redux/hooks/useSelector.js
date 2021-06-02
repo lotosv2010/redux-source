@@ -41,6 +41,11 @@ const useSelectorWithStore = (selector, equalityFn, store, contextSub) => {
   return selectedState
 }
 
+/**
+ * useSelector 有两个作用
+ *  1.获得总状态中的一部分状态
+ *  2.如果状态发生了变更，需要进行刷新组件
+ */
 function useSelector(selector) {
   const {store, subscription: contextSub} = useReduxContext() // 获取仓库
   const selectedState = useSelectorWithStore(selector, equalityFn, store, contextSub)
