@@ -7,10 +7,13 @@ const isPromise = (obj) => !!obj && (typeof obj === 'object' || typeof obj === '
 const reduxPromise = (middlewareAPI) => (next) => (action) => {
   const {dispatch} = middlewareAPI
   // console.log('dispatch === next', dispatch === next)
+  // 如果action自己是promise
   if(isPromise(action)) {
     // return action.then(result => dispatch(result))
+    // 如果自己是promise只能处理成功，不能不处理失败
     return action.then(dispatch)
   }
+  // 或者action.payload是promise
   return isPromise(action.payload)
     ? action.payload.then(result => dispatch({...action, payload: result}))
       .catch(error => {
