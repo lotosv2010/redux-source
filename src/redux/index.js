@@ -1,8 +1,9 @@
-import {createStore} from 'redux';
-function counter (state= {number: 0}, action) {
-  switch (action.type) {
+import {createStore} from '../lib/redux';
+
+function counter (state= {number: 0}, {type, payload}) {
+  switch (type) {
     case 'INCREMENT':
-      return {number:state.number + 1}
+      return {number:state.number + (payload || 1)}
     case 'DECREMENT':
       return {number:state.number - 1}
     default:

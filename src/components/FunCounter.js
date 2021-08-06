@@ -4,7 +4,7 @@ import store from '../redux/index'
 function Counter() {
   const [state, setState] = useState({number: store.getState().number})
   const add = () => {
-    store.dispatch({type: 'INCREMENT'})
+    store.dispatch({type: 'INCREMENT', payload: 5})
   }
   const minus = () => {
     store.dispatch({type: 'DECREMENT'})
