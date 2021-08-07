@@ -8,7 +8,7 @@ import ActionTypes from './actionTypes';
 export default function createStore(reduce, preloadedState) {
   const currentReduce = reduce; // 当前的reduce
   let currentState = preloadedState; // 当前状态
-  const currentListeners = []; // 订阅池
+  let currentListeners = []; // 订阅池
 
   // 派发动作，修改state
   const dispatch = (action) => {
@@ -26,8 +26,7 @@ export default function createStore(reduce, preloadedState) {
   const subscribe = (listener) => {
     currentListeners.push(listener)
     return function unsubscribe() {
-      const index = currentListeners.indexOf(listener);
-      currentListeners.splice(index, 1);
+      currentListeners = currentListeners.filter(l => l !== listener);
     }
   }
   dispatch({type: ActionTypes.INIT})
