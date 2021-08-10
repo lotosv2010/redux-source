@@ -6,7 +6,6 @@ import {bindAdd, bindMinus, bindMul, bindDiv, bindActions, add, minus, mul, div}
 const {dispatch} = store;
 
 function Counter(props) {
-  console.log(props, store.getState())
   const {counter1: {number}, counter2: {number: number2}} = props;
   const [state, setState] = useState({number: store.getState().counter1.number});
   const [state2, setState2] = useState({number: store.getState().counter2.number})
