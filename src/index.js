@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux'
+import {Provider} from './lib/react-redux'
 import './index.css';
 import Counter from './components/Counter'
 import store from './redux/index'

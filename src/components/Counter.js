@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {connect} from 'react-redux';
+import {connect} from '../lib/react-redux';
 import store from '../redux/index';
 import {bindAdd, bindMinus, bindMul, bindDiv, bindActions, add, minus, mul, div} from '../redux/actions'
 
