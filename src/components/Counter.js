@@ -48,10 +48,23 @@ function Counter(props) {
         <button onClick={() => bindActions.mul(3)}>*(counter2)</button>
         <button onClick={() => bindActions.div(3)}>/(counter2)</button>
       </p>
+      <p>
+        <span>react-redux:</span>
+        <button onClick={props.minus}>-(counter1)</button>
+        <button onClick={() => props.add(3)}>+(counter1)</button>||
+        <button onClick={() => props.mul(3)}>*(counter2)</button>
+        <button onClick={() => props.div(3)}>/(counter2)</button>
+      </p>
     </div>
   )
 }
 
-export default connect((state) => ({
-  ...state
-}))(Counter);
+const mapStateToProps = (state) => {
+  return state
+}
+
+const mapDispatchToProps = () => {
+  return bindActions
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
