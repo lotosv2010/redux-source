@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {connect} from '../lib/react-redux';
-import store from '../redux/index';
+import {connect, useStore} from '../lib/react-redux';
+// import store from '../redux/index';
 import {bindAdd, bindMinus, bindMul, bindDiv, bindActions, add, minus, mul, div} from '../redux/actions'
 
-const {dispatch} = store;
-
 function Counter(props) {
+  const store = useStore();
+  const {dispatch} = store;
   const {counter1: {number}, counter2: {number: number2}} = props;
   const [state, setState] = useState({number: store.getState().counter1.number});
   const [state2, setState2] = useState({number: store.getState().counter2.number})
