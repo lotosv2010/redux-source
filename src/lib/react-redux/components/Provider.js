@@ -1,8 +1,11 @@
 import ReactReduxContext from './Context';
+import Subscription from '../utils/Subscription';
 
 function Provider({store = {}, children}) {
-  console.log(store, children)
-  return <ReactReduxContext.Provider value={{store}}>
+  const subscription = new Subscription(store);
+  const value = {store, subscription}
+
+  return <ReactReduxContext.Provider value={value}>
     {children}
   </ReactReduxContext.Provider>
 }

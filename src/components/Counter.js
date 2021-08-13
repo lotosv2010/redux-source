@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {connect, useStore, useDispatch, useReduxContext} from '../lib/react-redux';
+import {connect, useStore, useDispatch, useReduxContext, useSelector} from '../lib/react-redux';
 // import store from '../redux/index';
 import {bindAdd, bindMinus, bindMul, bindDiv, bindActions, add, minus, mul, div} from '../redux/actions'
 
@@ -8,9 +8,13 @@ function Counter(props) {
   const dispatch = useDispatch();
   const context = useReduxContext();
   console.log(context);
+  const counter = useSelector(state => state.counter2);
+
   const {counter1: {number}, counter2: {number: number2}} = props;
+
   const [state, setState] = useState({number: context.store.getState().counter1.number});
-  const [state2, setState2] = useState({number: context.store.getState().counter2.number})
+  const [state2, setState2] = useState({number: context.store.getState().counter2.number});
+
   useEffect(() => {
     const unsubscribe =  store.subscribe(() => {
       setState({number: store.getState().counter1.number});
@@ -28,6 +32,8 @@ function Counter(props) {
       <hr />
       <p>redux(counter2):{state2.number}</p>
       <p>react-redux(counter2):{number2}</p>
+      <hr />
+      <p>react-redux hook(counter2):{counter.number}</p>
       <hr />
       <p>
         <span>dispatch:</span>
