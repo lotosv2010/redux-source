@@ -1,6 +1,6 @@
 import actionCreators1 from './counter1';
 import actionCreators2 from './counter2';
-import store from '../index';
+import {store} from '../index';
 import {bindActionCreators} from '../../lib/redux';
 
 

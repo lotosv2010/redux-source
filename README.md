@@ -42,4 +42,6 @@ redux source
 
 #### useSelector 基本实现
 
-### applyMiddleware 基本实现
+## applyMiddleware 基本实现
+
+## redux-persist 基本使用

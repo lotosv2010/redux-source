@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom';
 import {Provider} from './lib/react-redux'
 import './index.css';
 import Counter from './components/Counter'
-import store from './redux/index'
+import {persistor, store} from './redux/index'
+import {PersistGate} from 'redux-persist/integration/react'
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
+    <PersistGate persistor={persistor} loading={null}>
       <Counter />
-    </div>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
