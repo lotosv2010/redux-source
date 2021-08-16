@@ -5,7 +5,7 @@ import {Provider} from './lib/react-redux'
 import './index.css';
 import Counter from './components/Counter'
 import {persistor, store} from './redux/index'
-import {PersistGate} from 'redux-persist/integration/react'
+import {PersistGate} from './lib/redux-persist/integration/react'
 
 ReactDOM.render(
   <Provider store={store}>
