@@ -11,7 +11,6 @@ function combineReducers(reducers) {
     // 此次派发动作是否引起了状态的更新
     let hasChanged = false;
     const nextState = {};
-    console.log(state)
     for (const key in finalReducers) {
       // finalReducers[key] 处理函数
       // state[key] 老的状态

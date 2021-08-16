@@ -7,7 +7,7 @@ function Counter(props) {
   const store = useStore();
   const dispatch = useDispatch();
   const context = useReduxContext();
-  console.log(context);
+  // console.log(context);
   const counter = useSelector(state => state.counter2);
 
   const {counter1: {number}, counter2: {number: number2}} = props;
@@ -62,6 +62,52 @@ function Counter(props) {
         <button onClick={() => props.add(3)}>+(counter1)</button>||
         <button onClick={() => props.mul(3)}>*(counter2)</button>
         <button onClick={() => props.div(3)}>/(counter2)</button>
+      </p>
+      <p>
+        <span>redux-thunk:</span>
+        <button onClick={() => dispatch((dispatch) => {
+          setTimeout(() => {
+            dispatch(minus(1))
+          }, 1000)
+        })}>-(counter1)</button>
+        <button onClick={() => dispatch((dispatch) => {
+          setTimeout(() => {
+            dispatch(add(1))
+          }, 1000)
+        })}>+(counter1)</button>||
+        <button onClick={() => dispatch((dispatch) => {
+          setTimeout(() => {
+            dispatch(mul(2))
+          }, 1000)
+        })}>*(counter2)</button>
+        <button onClick={() => dispatch((dispatch) => {
+          setTimeout(() => {
+            dispatch(div(2))
+          }, 1000)
+        })}>/(counter2)</button>
+      </p>
+      <p>
+        <span>redux-promise:</span>
+        <button onClick={() => dispatch(new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(mul(1))
+          }, 2000);
+        }))}>-(counter1)</button>
+        <button onClick={() => dispatch(new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(add(1))
+          }, 2000);
+        }))}>+(counter1)</button>||
+        <button onClick={() => dispatch(new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(mul(2))
+          }, 2000);
+        }))}>*(counter2)</button>
+        <button onClick={() => dispatch(new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(div(2))
+          }, 2000);
+        }))}>/(counter2)</button>
       </p>
     </div>
   )
