@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {connect, useStore, useDispatch, useReduxContext, useSelector} from '../lib/react-redux';
-import {createSelector} from 'reselect';
+import {createSelector} from '../lib/reselect';
 import {bindAdd, bindMinus, bindMul, bindDiv, bindActions, add, minus, mul, div} from '../redux/actions'
 
 function Counter(props) {
