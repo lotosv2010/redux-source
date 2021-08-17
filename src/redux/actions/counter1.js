@@ -1,15 +1,22 @@
-import { INCREMENT, DECREMENT } from '../types'
+import { INCREMENT, DECREMENT } from '../types';
+import {createActions} from 'redux-actions';
 
-const add = (payload) => {
-  return {type: INCREMENT, payload}
-}
-const minus = () => {
-  return {type: DECREMENT}
-}
+// const add = createAction(INCREMENT, (payload) => payload);
+// const minus = createAction(DECREMENT)
 
-const actionCreators = {
-  add,
-  minus
-}
+// const add = (payload) => {
+//   return {type: INCREMENT, payload}
+// }
+// const minus = () => {
+//   return {type: DECREMENT}
+// }
 
-export default actionCreators;
+// const actionCreators = {
+//   add,
+//   minus
+// }
+
+export default createActions({
+  [INCREMENT]: (payload) => (payload),
+  [DECREMENT]: (payload) => (payload)
+});

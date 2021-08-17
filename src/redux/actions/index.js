@@ -3,9 +3,8 @@ import actionCreators2 from './counter2';
 import {store} from '../index';
 import {bindActionCreators} from '../../lib/redux';
 
-
 const {dispatch} = store;
-export const {add, minus} = actionCreators1;
+export const {increment: add, decrement: minus} = actionCreators1;
 export const {mul, div} = actionCreators2;
 
 // todo:单个绑定

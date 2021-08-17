@@ -44,21 +44,21 @@ function Counter(props) {
       </p>
       <p>
         <span>单个绑定:</span>
-        <button onClick={bindMinus}>-(counter1)</button>
+        <button onClick={() => bindMinus(1)}>-(counter1)</button>
         <button onClick={() => bindAdd(2)}>+(counter1)</button>||
         <button onClick={() => bindMul(2)}>*(counter2)</button>
         <button onClick={() => bindDiv(2)}>/(counter2)</button>
       </p>
       <p>
         <span>多个绑定:</span>
-        <button onClick={bindActions.minus}>-(counter1)</button>
+        <button onClick={() => bindActions.minus(1)}>-(counter1)</button>
         <button onClick={() => bindActions.add(3)}>+(counter1)</button>||
         <button onClick={() => bindActions.mul(3)}>*(counter2)</button>
         <button onClick={() => bindActions.div(3)}>/(counter2)</button>
       </p>
       <p>
         <span>react-redux:</span>
-        <button onClick={props.minus}>-(counter1)</button>
+        <button onClick={() => props.minus(1)}>-(counter1)</button>
         <button onClick={() => props.add(3)}>+(counter1)</button>||
         <button onClick={() => props.mul(3)}>*(counter2)</button>
         <button onClick={() => props.div(3)}>/(counter2)</button>
@@ -90,7 +90,7 @@ function Counter(props) {
         <span>redux-promise:</span>
         <button onClick={() => dispatch(new Promise((resolve) => {
           setTimeout(() => {
-            resolve(mul(1))
+            resolve(minus(1))
           }, 2000);
         }))}>-(counter1)</button>
         <button onClick={() => dispatch(new Promise((resolve) => {
