@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {connect, useStore, useDispatch, useReduxContext, useSelector} from '../lib/react-redux';
-// import store from '../redux/index';
+import {createSelector} from 'reselect';
 import {bindAdd, bindMinus, bindMul, bindDiv, bindActions, add, minus, mul, div} from '../redux/actions'
 
 function Counter(props) {
@@ -25,7 +25,7 @@ function Counter(props) {
 
   return (
     <div>
-      <h2>function component</h2>
+      <h2>function component: {props.branchName}</h2>
       <hr />
       <p>redux(counter1):{state.number}</p>
       <p>react-redux(counter1):{number}</p>
@@ -113,9 +113,16 @@ function Counter(props) {
   )
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
+// stateSelector 和 createSelector 中可以对 state 做过滤或逻辑处理
+// 本案例是在原来的state的基础上新增了一个name属性
+const stateSelector = state => ({...state, branchName: 'reselect demo'});
+const getStateSelector = createSelector(stateSelector, state => state);
+
+// const mapStateToProps = (state) => {
+//   return state
+// }
+
+const mapStateToProps = (state) => getStateSelector(state)
 
 const mapDispatchToProps = () => {
   return bindActions
